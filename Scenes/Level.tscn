@@ -1,0 +1,100 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Item.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 993.714, 13.6387 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 11.5788, 205.641 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2( 0, 650 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource( 1 )
+
+[node name="RectFloor" type="ColorRect" parent="Floor"]
+margin_left = -1000.0
+margin_right = 1000.0
+margin_bottom = 40.0
+color = Color( 0.145098, 0.145098, 0.145098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Roof" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2( 0, 300 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roof"]
+shape = SubResource( 1 )
+
+[node name="RectFloor" type="ColorRect" parent="Roof"]
+margin_left = -1000.0
+margin_right = 1000.0
+margin_bottom = 40.0
+color = Color( 0.145098, 0.145098, 0.145098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2( -1000, 325 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2( 0, 0.419159 )
+shape = SubResource( 2 )
+
+[node name="RectWall" type="ColorRect" parent="Wall"]
+margin_top = -325.0
+margin_right = 10.0
+margin_bottom = 325.0
+color = Color( 0.145098, 0.145098, 0.145098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2( 1000, 325 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2( 0, 110 )
+shape = SubResource( 2 )
+
+[node name="RectWall" type="ColorRect" parent="Wall2"]
+margin_right = 10.0
+margin_bottom = 325.0
+color = Color( 0.145098, 0.145098, 0.145098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item" parent="." instance=ExtResource( 4 )]
+position = Vector2( -242.878, 548.618 )
+value = 6
+
+[node name="RectBackground" type="ColorRect" parent="."]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -1000.0
+margin_top = 2.18555
+margin_right = 1000.0
+margin_bottom = 702.186
+color = Color( 0.317647, 0.333333, 0.372549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SP_Player" type="Node2D" parent="."]
+position = Vector2( 326.741, 524.886 )
+
+[node name="SP_Player2" type="Node2D" parent="."]
+position = Vector2( 625.547, 531.497 )
